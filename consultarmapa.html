@@ -1,0 +1,619 @@
+<style>
+    .left {
+        float: left;
+        width: 25%;
+    }
+    .right {
+        float: right;
+        width: 70%;
+    }
+    .group:after {
+        content:"";
+        display: table;
+        clear: both;
+    }
+    .division{
+		border-right: 1px solid #D7CEE5; 
+    }
+    .filtros{
+    	text-align: right;
+    }
+    @media screen and (max-width: 480px) {
+        .left, .right {
+            float: none;
+            width: auto;
+        }
+    }
+    
+    .tituloEstado{
+    	background-color: #6669AC;
+    	font-style: normal;
+    	font-size: 14px;
+    	color: #ffffff;
+    }
+    
+    
+    #map-canvas {
+	margin: 0;
+	padding: 0;
+	height: 200px;
+	max-width: none;
+	}
+	#map-canvas img {
+		max-width: none !important;
+	}
+	.gm-style-iw {
+		width: 330px !important;
+		top: 5px !important;
+		left: 0px !important;
+		background-color: #fff;
+		border-radius: 2px 2px 10px 10px;
+	}
+	#iw-container .iw-title {
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-size: 22px;
+		font-weight: 400;
+		padding: 10px;
+		background-color: #603B97;
+		color: white;
+		margin: 0;
+		border-radius: 2px 2px 0 0;
+	}
+
+
+	.iw-title-footer{
+		font-family: 'Open Sans Condensed', sans-serif;
+		font-size: 22px;
+		font-weight: 400;
+		padding: 10px;
+		background-color: #993895;
+		color: white;
+		margin: 0;
+		border-radius: 2px 2px 0 0;
+	}
+	#iw-container .iw-content {
+		font-size: 13px;
+		line-height: 12px;
+		font-weight: 400;
+		margin-right: 30px;
+		padding: 15px 5px 20px 15px;
+		max-height: 180px;
+		overflow-y: auto;
+		overflow-x: hidden;
+	}
+	.iw-content img {
+		float: right;
+		margin: 0 5px 5px 10px;	
+	}
+	.iw-subTitle {
+		font-size: 16px;
+		font-weight: 700;
+		padding: 5px 0;
+	}
+	
+	
+	.gm-style-iw + div {
+	  display: none;
+	}
+	
+	.combos_busqueda_moto{
+		position: absolute;
+		left: 650px;
+		top:1125px;
+		z-index: 3;	
+	}
+	
+	.searchclass {
+	  margin: 0 !important;
+	  position: relative;
+	  left:470px;
+	  top:-40px;
+	  z-index: 2;
+	  -webkit-transition: height .3s ease-in-out;
+	  transition: all .3s ease-in-out;
+	  height: 0;
+	  opacity: 0;
+	}
+	
+	.tabla_inferior{
+		position: absolute;
+		left: 210px;
+		top: 1140px;
+		z-index: 1;
+	}
+	
+	.searchclass.active {
+	  height: 250px;
+	  opacity: 1;
+	  width:200px;
+	}
+	
+	.searchclassBarras{
+	  margin: 0 !important;
+	  position: relative;
+	  left:460px;
+	  top:-440px;
+	  z-index: 2;
+	  -webkit-transition: height .3s ease-in-out;
+	  transition: all .3s ease-in-out;
+	  height: 0;
+	  opacity: 0;
+	}
+	
+	.searchclassBarras.active {
+	  height: 250px;
+	  opacity: 1;
+	  width:200px;
+	}
+	
+	@media(min-width: 1200px) and (max-width: 1400px) 
+	{
+		.combos_busqueda_moto{
+			position: absolute;
+			left: 650px;
+			top:1125px;
+			z-index: 3;	
+		}
+		.searchclass {
+		  margin: 0 !important;
+		  position: relative;
+		  left:440px;
+		  top:-27px;
+		  z-index: 2;
+		  -webkit-transition: height .3s ease-in-out;
+		  transition: all .3s ease-in-out;
+		  height: 0;
+		  opacity: 0;
+		}
+		
+		.tabla_inferior{
+			position: absolute;
+			left: 210px;
+			top: 1140px;
+			z-index: 1;
+		}
+		
+		.searchclass.active {
+		  height: 250px;
+		  opacity: 1;
+		  width:200px;
+		}
+		
+		.searchclassBarras{
+		  margin: 0 !important;
+		  position: relative;
+		  left:423px;
+		  top:-430px;
+		  z-index: 2;
+		  -webkit-transition: height .3s ease-in-out;
+		  transition: all .3s ease-in-out;
+		  height: 0;
+		  opacity: 0;
+		}
+	
+		.searchclassBarras.active {
+		  height: 250px;
+		  opacity: 1;
+		  width:200px;
+		}
+	}
+
+@media (min-width: 768px) and (max-width: 1199px) { 
+			.combos_busqueda_moto{
+				position: absolute;
+				left: 440px;
+				top:1115px;
+				z-index: 3;	
+			}
+			.searchclass {
+			  margin: 0 !important;
+			  position: relative;
+			  left:300px;
+			  top:-27px;
+			  z-index: 2;
+			  -webkit-transition: height .3s ease-in-out;
+			  transition: all .3s ease-in-out;
+			  height: 0;
+			  opacity: 0;
+			}
+			
+			.tabla_inferior{
+				position: absolute;
+				left: 65px;
+				top: 1140px;
+				z-index: 1;
+			}
+			
+			.searchclass.active {
+			  height: 250px;
+			  opacity: 1;
+			  width:200px;
+			}
+			
+			
+			.searchclassBarras{
+			  margin: 0 !important;
+			  position: relative;
+			  left:300px;
+			  top:--27px;
+			  z-index: 2;
+			  -webkit-transition: height .3s ease-in-out;
+			  transition: all .3s ease-in-out;
+			  height: 0;
+			  opacity: 0;
+			}
+		
+			.searchclassBarras.active {
+			  height: 250px;
+			  opacity: 1;
+			  width:200px;
+			}
+ }
+	
+	@media (min-width: 1000px) and (max-width: 1200px) { 
+				.mapa_responsivo{
+					width:450px;
+					height:450px;	
+				}
+	 }
+	
+	@media (min-width: 768px) and (max-width: 900px) { 
+				.mapa_responsivo{
+					width:100px;
+					height:250px;	
+				}
+	 }
+ 
+ 
+		/*#piechart {
+		  top: 0;
+		  left: 0;
+		  width:100%;
+		  height:100%;
+		}
+		
+		.google-visualization-tooltip{
+		  display:table;
+		}
+		
+		g{
+		  cursor:pointer;
+		}*/
+		
+		div.google-visualization-tooltip {
+			heigh:200px;
+			width:250px; 
+			background-color:#6669AC;  
+		}
+
+</style>
+<div class="row">
+		<div class="screen_title">
+   			<div class="icono_pantalla">
+    			 <img src=""></div>
+        	<div class="titulo">
+         		  <span class="titulo_pan">Consulta de Informaci&oacute;n</span><br>
+         	  <span class="sub-titulo">Mapa de Riesgo y Gr&aacute;ficas y Estad&iacute;sticas</span>
+        	</div>
+    </div>     
+</div>
+<div class="separator"></div>
+    <div class="center_elementos"><span>Mapa de Riesgos</span></div>
+<div class="separator"></div>
+<form id="formConsultaMapaRiesgo" name="formConsultaMapaRiesgo" novalidate>
+<div class="group">
+    <div class="left division">			
+    	<div class="form-group">
+	    	<div class="table-responsive">
+	    	<!-- Selecciíon del Caso filtro 1-->
+	    	    <div class="col-xs-4 col-md-4 col-sm-4 col-lg-3 filtros">Tipo de An&aacute;lisis:</div>
+		    	<div class="col-xs-10 col-md-10 col-sm-10 col-lg-10 flecha_combo">
+					<select  	ng-model = "selectedAnalisis" 
+								ng-options="opt as opt.label for opt in listAnalisis"  
+								ng-change="changeAnalisis(selectedAnalisis.value)" 
+								name="selEstado" 
+								ng-required="true">
+						<option value="">Seleccione tipo de analisis</option>
+					</select>
+				</div>
+				<div ng-show="formConsultaMapaRiesgo.selEstado.$dirty && formConsultaMapaRiesgo.selEstado.$invalid" style="padding-left: 0px; float: left;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						<span><img src="app/styles/iconos/icono_FallaArchivo.png"></span>
+				</div>
+				<div class="error-container" ng-show="formConsultaMapaRiesgo.selEstado.$dirty && formConsultaMapaRiesgo.selEstado.$invalid">
+					<span class="error txt_error" 
+							ng-show="formConsultaMapaRiesgo.selEstado.$error.required">
+								Seleccione tipo de analisis
+					</span>
+				</div>
+				<br />	    	
+				<br />
+				<br />
+				<br />
+				<!-- Selecciíon del caso inusual filtro 2-->
+	    	    <div class="col-xs-4 col-md-4 col-sm-4 col-lg-3 filtros">Indicador:</div>
+		    	<div class="col-xs-10 col-md-10 col-sm-10 col-lg-10 flecha_combo">
+					<select  ng-model = "selectedIndicador" 
+								ng-options="opt as opt.label for opt in listIndicador"  
+								ng-change="changeIndicador()" 
+								name="selIndicador" 
+								ng-required="true">
+						<option value="">Seleccione el indicador</option>
+					</select>
+				</div>
+				<br />	    	
+				<br />
+				<br />
+				<br />				
+			 	<table ng-show="paginacion" ng-table="tableParams" template-pagination="custom/pager"  class="table table-striped input-sm_table">
+					<tr ng-repeat="edo in registro">    	    
+						<td data-title="'Estado'" sortable="'estado'"  class="active" header-class="flechas_columnas">{{edo.estado}}</td>
+			        	<td data-title="'Casos'" sortable="'casos'"  class="active" header-class="flechas_columnas">{{edo.casos}}</td>
+			    	</tr>    
+				</table> 			
+			</div>
+    	</div>    	
+    </div>
+    <div class="col-xs-8 col-md-8 col-md-8 col-lg-8">
+    		<div class="col-xs-1 col-md-1 col-sm-1 col-lg-1">Estado:</div>
+		    	<div class="col-xs-4 col-md-4 col-sm-4 col-lg-4 flecha_combo">
+					<select  ng-model = "selectedEstado" 
+								ng-options="opt as opt.label for opt in listEstados"  
+								ng-change="changeEstado()" 
+								name="selEstado" 
+								ng-required="true">
+						<option value="">Seleccione</option>
+					</select>
+				</div>
+				<!--<div ng-show="formConsultaMapaRiesgo.selEstado.$dirty && formConsultaMapaRiesgo.selEstado.$invalid" style="padding-left: 0px; float: left;" class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+						<span><img src="app/styles/iconos/icono_FallaArchivo.png"></span>
+				</div>
+				<div class="error-container" ng-show="formConsultaMapaRiesgo.selEstado.$dirty && formConsultaMapaRiesgo.selEstado.$invalid">
+					<span class="error txt_error" 
+							ng-show="formConsultaMapaRiesgo.selEstado.$error.required">
+								Seleccione un estado
+					</span>
+				</div>-->
+    		<div class="col-xs-3 col-md-3 col-sm-3 col-lg-3">Gr&aacute;ficas Estad&iacute;stica:</div>
+    		<div class="col-xs-3 col-md-3 col-sm-4 col-lg-3">
+    			<label class="col-xs-4 col-md-3 col-sm-3 col-lg-3">Fecha Inicio</label>								
+    			<div class="padding-col input-group">
+					<span class="input-group-addon"> <i class="glyphicon image"></i>
+					</span>
+					<ng-datepicker type="text" id="fechaInicio"
+						name="fechaInicio" ng-model="fechaInicio"
+						format="dd/mm/yy" actualdate="true"/>
+				</div>
+			</div>
+    		<div class="col-xs-3 col-md-3 col-sm-4 col-lg-3">
+    			<label class="col-xs-4 col-md-3 col-sm-3 col-lg-3">Fecha Fin</label>		
+    			<div class=" padding-col input-group">
+					<span class="input-group-addon"> <i class="glyphicon image"></i>
+					</span>
+					<ng-datepicker type="text" id="fechaFin"
+						name="fechaFin" ng-model="fechaFin"
+						format="dd/mm/yy" actualdate="true"/>
+				</div>
+		    </div>
+			<div class="col-sm-6 col-lg-4">
+				<div class="form-group">
+					<div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+					  	<button class="btn btn-primary" id="consultar" style="height: 25px !important; line-height: 1px !important;">
+					  		<span>Consultar</span>
+			      		</button>	
+					</div>
+				</div>
+			</div>		    	
+    </div>
+    <div class="right">
+		<div id="columnchart_material" name="columnchart_material"></div>
+        <div id="chart_div"  style="width: 650px; height: 600px;" class="mapa_responsivo"></div><!-- Div que representa el mapa principal de la república -->
+        <div id="estadoZoom" style="width: 650px; height: 600px;"  class="mapa_responsivo"></div><!-- div que representa el mapra para los polígonos de estados -->
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+		  	<button class="btn btn-primary" id="regresarMapa" style="height: 25px !important; line-height: 1px !important;">
+		  		<span>Regresar al mapa</span>
+      		</button>	
+		</div>	
+    </div>    
+</div>
+<div class="separator"></div>
+    <div class="center_elementos"><span>M&eacute;xico</span></div><!-- Será una variable dinamica en caso de que sea extragero -->
+<div class="separator"></div>
+</form>
+<!--Combo estatus de casso-->
+	<div style="padding-top: 10px; padding-bottom: 5px;"> 
+		<div class="center_elementos">
+			<!--Contenedor form buscar  -->
+			<div class="container-fluid">
+				<form class="form-horizontal" id="formreporteConsultaClientes"role="form">
+					<div class="row">
+						<div class="col-xs-2 col-md-2 col-sm-2 col-lg-2 control-label">Estatus de Caso</div>
+						<div class="col-xs-6 col-md-6 col-sm-6 col-lg-4">
+							<div class="form-group">
+								<div class="col-md-8">
+									<div class="flecha_combo">
+										<select  id="estatus" ng-model="filtroClientes.selectedEstatus" ng-options="opt as opt.label for opt in itemsEstatus">
+											<option value="">SELECCIONE EL ESTATUS</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>			
+					
+					</div><!-- /.row this actually does not appear to be needed with the form-horizontal -->
+				</form>
+			</div><!-- /.container -->
+			<!--Fin form-->
+		</div>
+	</div>
+<!-- Fin combo estatus decaso -->
+<!--Estructura botones mostrar botones de gráficass -->		
+	<div class="center_elementos">
+		<div class="row" style="padding-bottom: 10px">
+			<div class="col-xs-6 col-sm-6 col-md-4 col-lg-3">
+				<span style="float: left">Mostrar&emsp;</span>
+				<div class="flecha_pag" style="float: left;">
+					<select style="font-size: 12pt; text-align: center;"
+						ng-model="seleccion"
+						ng-options="opt as opt.label for opt in regPaginacion"
+						ng-change="changePagination()">
+					</select>
+				</div>
+				<span>&emsp;entradas</span> <br>
+			</div>
+
+			<div class="col-xs-12 col-sm-4 col-md-3 col-lg-3  col-sm-offset-2 col-md-offset-5  col-lg-offset-6">
+				<div class="btn-group">
+				  <div class="col-xs-5 col-sm-4 col-md-4 col-lg-4" style="float: left">Visualizar c&oacute;mo</div>
+				  <button type="button" class="btn" ng-click='showTable()'><span class="glyphicon glyphicon-th" aria-hidden="true"></span></button>
+				  <button type="button" class="btn" ng-click='showGraficaPastel()'><span class="glyphicon glyphicon-adjust" aria-hidden="true"></span></button>				  
+				  <button type="button" class="btn" ng-click='showGraficaBarras()'><span class="glyphicon glyphicon-align-left" aria-hidden="true"></span></button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--Final Estructura botones mostrar botones de gráficass -->	
+	<br>
+<!-- Combos de filtrado de Piechart y ColumnCahrt -->		
+	<div style="padding-top: 10px; padding-bottom: 5px;" id="combosGraficaPieChart" ng-show="combosGraficaPieChart" class="col-xs-6 col-md-6 col-sm-6 col-lg-8 combos_busqueda_moto"> 
+		<div class="center_elementos">
+			<div class="container-fluid">
+					<div class="row">
+					
+						<div class="col-xs-8 col-md-5 col-sm-5 col-lg-3">
+							<div class="flecha_combo">
+								<select  id="comboUno" ng-model="comboUnoPieChart">
+									<option value="">SELECCIONE EL ESTATUS</option>
+									<option value="monto">Monto</option>
+								</select>
+							</div>
+						</div>
+					
+						<div class="col-xs-8 col-md-5 col-sm-5 col-lg-3">
+							<div class="flecha_combo"><!-- ng-options="opt as opt.label for opt in itemsEstatus" -->
+								<select  id="comboDos" ng-model="comboDosPieChart">
+									<option value="">SELECCIONE EL ESTATUS</option>
+									<option value="monto">Monto</option>
+								</select>
+							</div>
+						</div>
+						
+					</div>
+			</div>
+		</div>
+	</div>
+<!--Fin de estructura Combos de filtrado ColumnCahrt -->
+<!-- Combos de filtrado de Piechart y ColumnCahrt -->		
+	<div style="padding-top: 10px; padding-bottom: 5px;" id="combosGraficaColumnchart" ng-show="combosGraficaColumnchart" class="col-xs-6 col-md-6 col-sm-6 col-lg-8 combos_busqueda_moto"> 
+		<div class="center_elementos">
+			<div class="container-fluid">
+					<div class="row">
+					
+						<div class="col-xs-8 col-md-5 col-sm-5 col-lg-3">
+							<div class="flecha_combo">
+								<select  id="comboUno" ng-model="comboUnoColumnchart">
+									<option value="">SELECCIONE EL ESTATUS</option>
+									<option value="monto">Monto</option>
+								</select>
+							</div>
+						</div>
+					
+						<div class="col-xs-8 col-md-5 col-sm-5 col-lg-3">
+							<div class="flecha_combo"><!-- ng-options="opt as opt.label for opt in itemsEstatus" -->
+								<select  id="comboDos" ng-model="comboDosColumnchart">
+									<option value="">SELECCIONE EL ESTATUS</option>
+									<option value="monto">Monto</option>
+								</select>
+							</div>
+						</div>
+						
+					</div>
+			</div>
+		</div>
+	</div>
+<!--Fin de estructura Combos de filtrado ColumnCahrt -->					
+<!-- Inicio de la tabla de inusuales-->
+	<div class="center_grid" id="tabla_inusuales" ng-show="tipoAnalisisInusuales">
+		<div class="center_elementos">
+					<div class="list list-inset searchclass" ng-class="{'active':isdiplay}" id="piechart_3dInusuales" style="width:450px; height:400px;"></div>				  
+		</div>
+		<div class="center_elementos">
+					<div class="list list-inset searchclassBarras" ng-class="{'active':isdiplayBarras}" id="series_chart_divInusuales" style="width:450px; height:400px;"></div>				  
+		</div>		
+	 	<div class="table-responsive tabla_inferior" ng-show="tipoAnalisisInusuales">
+	 	<table ng-show="paginacion" ng-table="tableParamsInusuales" template-pagination="custom/pager"  class="table table-striped input-sm_table">
+			<tr ng-repeat="inusuales in registrosInusuales">    	    
+				<td data-title="'Estado'" sortable="'estado'"  class="active" header-class="flechas_columnas">{{inusuales.estado}}</td>
+	        	<td data-title="'Nùmero de operaciones'" sortable="'numOperaciones'"  class="text" header-class="flechas_columnas">{{inusuales.numOperaciones}}</td>
+	        	<td data-title="'Nùmero de casos'" sortable="'numCasos'" class="active" header-class="flechas_columnas">{{inusuales.numCasos}}</td>
+	        	<td data-title="'Nùmero de operaciones Relacionadas al Caso'" sortable="'numOperacionesCasos'" class="text" header-class="flechas_columnas">{{inusuales.numOperacionesCasos}}</td>
+	        	<td data-title="'Monto Total de Operacion'" sortable="'montoTotal'" class="active" header-class="flechas_columnas">{{inusuales.montoTotal}}</td>
+	        	<td data-title="'Semáforo'" sortable="'nivelConocim'" class="text" header-class="flechas_columnas" ng-class="{'bookmark_green_casos' : {{inusuales.montoTotal}} < 10000 ,'bookmark_yellow_casos' : {{inusuales.montoTotal}} > 10001 && {{inusuales.montoTotal}} < 100000, 'bookmark_red_casos' : {{inusuales.montoTotal}} > 100001}">{{inusuales.semaforo}}</td>
+	    	</tr>    
+		</table> 			
+		</div>
+	</div>	
+<!-- Inicio tabla relevantes -->
+	<div class="center_grid" id="tabla_relevantes" ng-show="tipoAnalisisRelevantes">
+		<div class="center_elementos">
+					<div class="list list-inset searchclass" ng-class="{'active':isdiplay}" id="piechart_3dRelevantes" style="width:450px; height:400px;"></div>				  
+		</div>
+		<div class="center_elementos">
+					<div class="list list-inset searchclassBarras" ng-class="{'active':isdiplayBarras}" id="series_chart_divRelevantes" style="width:450px; height:400px;"></div>				  
+		</div>		
+	 	<div class="table-responsive tabla_inferior" ng-show="tipoAnalisisRelevantes">
+	 	<table ng-show="paginacion" ng-table="tableParamsRelevantes" template-pagination="custom/pager"  class="table table-striped input-sm_table">
+			<tr ng-repeat="relevantes in registrosRelevantes">    	    
+				<td data-title="'Estado'" sortable="'estado'"  class="active" header-class="flechas_columnas">{{relevantes.estado}}</td>
+	        	<td data-title="'Nùmero de operaciones'" sortable="'numOperaciones'"  class="text" header-class="flechas_columnas">{{relevantes.numOperaciones}}</td>
+	        	<td data-title="'Nùmero de casos'" sortable="'numCasos'" class="active" header-class="flechas_columnas">{{relevantes.numCasos}}</td>
+	        	<td data-title="'Operaciones Relacionadas al Caso'" sortable="'numOperacionesCasos'" class="text" header-class="flechas_columnas">{{relevantes.numOperacionesCasos}}</td>
+	        	<td data-title="'Monto Total de Operaciones'" sortable="'montoTotal'" class="active" header-class="flechas_columnas">{{relevantes.montoTotal}}</td>
+	        	<td data-title="'Semáforo'" sortable="'nivelConocim'" class="text" header-class="flechas_columnas" ng-class="{'bookmark_green_casos' : {{relevantes.montoTotal}} < 10000 ,'bookmark_yellow_casos' : {{relevantes.montoTotal}} > 10001 && {{relevantes.montoTotal}} < 100000, 'bookmark_red_casos' : {{relevantes.montoTotal}} > 100001}">{{relevantes.semaforo}}</td>
+	    	</tr>    
+		</table> 			
+		</div>
+	</div>
+<!-- Inicio tabla preocupantes -->
+	<div class="center_grid" id="tabla_relevantes" ng-show="tipoAnalisisPreocupantes">
+		<div class="center_elementos">
+					<div class="list list-inset searchclass" ng-class="{'active':isdiplay}" id="piechart_3dPreocupantes" style="width:450px; height:400px;"></div>				  
+		</div>
+		<div class="center_elementos">
+					<div class="list list-inset searchclassBarras" ng-class="{'active':isdiplayBarras}" id="series_chart_divPreocupantes" style="width:450px; height:400px;"></div>				  
+		</div>		
+	 	<div class="table-responsive tabla_inferior" ng-show="tipoAnalisisPreocupantes">
+	 	<table ng-show="paginacion" ng-table="tableParamsPreocupantes" template-pagination="custom/pager"  class="table table-striped input-sm_table">
+			<tr ng-repeat="preocupantes in registrosPreocupantes">    	    
+				<td data-title="'Estado'" sortable="'estado'"  class="active" header-class="flechas_columnas">{{preocupantes.estado}}</td>
+	        	<td data-title="'Nùmero de operaciones'" sortable="'numOperaciones'"  class="text" header-class="flechas_columnas">{{preocupantes.numOperaciones}}</td>
+	        	<td data-title="'Nùmero de casos'" sortable="'numCasos'" class="active" header-class="flechas_columnas">{{preocupantes.numCasos}}</td>
+	        	<td data-title="'Pendientes de analizar'" sortable="'numOperacionesCasos'" class="text" header-class="flechas_columnas">{{preocupantes.numPendientes}}</td>
+	        	<td data-title="'Analizado'" sortable="'montoTotal'" class="active" header-class="flechas_columnas">{{preocupantes.numCerrados}}</td>
+	        	<td data-title="'Cerrado'" sortable="'montoTotal'" class="active" header-class="flechas_columnas">{{preocupantes.numAnalizados}}</td>
+	        	<td data-title="'Enviado al comité'" sortable="'montoTotal'" class="active" header-class="flechas_columnas">{{preocupantes.numEnviados}}</td>
+	        	<td data-title="'Reportado'" sortable="'montoTotal'" class="active" header-class="flechas_columnas">{{preocupantes.numReportados}}</td>
+	        	<td data-title="'Semáforo'" sortable="'nivelConocim'" class="text" header-class="flechas_columnas" ng-class="{'bookmark_green_casos' : {{preocupantes.semaforo}} < 10000 ,'bookmark_yellow_casos' : {{preocupantes.semaforo}} > 10001 && {{preocupantes.semaforo}} < 100000, 'bookmark_red_casos' : {{preocupantes.semaforo}} > 100001}">{{preocupantes.semaforo}}</td>
+	    	</tr>    
+		</table> 			
+		</div>
+	</div>		
+	<script type="text/ng-template" id="custom/pager">     
+        <div ng-show="paginacion" class="footer_table">   
+		<div style="float: left;">Mostrando de <span class="pagination_flechas">{{params.page() * params.count() - params.count()+1 }}&emsp;</span> a <span class="pagination_flechas">{{params.page() * params.count()}}&emsp;</span>entradas 
+   	   </div>
+  	 <div style="float: right;">
+    
+      <span ng-repeat="page in pages"
+            ng-class="{'disabled': !page.active, 'previous': page.type == 'prev', 'next': page.type == 'next'
+						, 'last': page.type == 'last','first': page.type == 'first', 'page': page.type == 'page'}"
+            ng-show="page.type == 'first' || page.type == 'next' || page.type == 'prev' || page.type == 'last' || page.type == 'page'" ng-switch="page.type">
+        <span  ng-switch-when="prev" ng-click="params.page(page.number)"><span class="email"><</span><span style="cursor :pointer" class="pagination_btn"> Anterior</span></span>
+        <span ng-switch-when="next" ng-click="params.page(page.number)"><span style="cursor :pointer" class="pagination_btn">Siguiente</span> <span  class="pagination_flechas">></span></span>
+         <span ng-show="false" ng-switch-when="page"><span  ng-bind="tableParams.page()"class="email"></span>&emsp;&emsp;&emsp;</span>
+          <span ng-switch-when="more" ng-click="params.page(page.number)"><span "class="email"></span>&#8230;</span>
+		 <span ng-switch-when="last" ng-click="params.page(page.number)"><span style="cursor :pointer" class="pagination_btn">Ultimo</span><span  class="pagination_flechas">>></span></span>
+        <span ng-switch-when="first" ng-click="params.page(page.number)"><span class="pagination_flechas"><<</span><span style="cursor :pointer" class="pagination_btn">Primero</span></span>
+      </span>
+    </div>  
+</div>    
+</script>
